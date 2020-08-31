@@ -1,14 +1,56 @@
 @import '../../sass/variable.scss';
 
 .gameCard{
-    background-color: darkslategray;
-    position: absolute;
-    left:0;
-    width:2.5in;
-    height: auto;
-    z-index: 100;
-    top:.64in;
-    padding-bottom: 1in;
+  padding-top: 0rem;
+  padding-left: 2rem;
+  padding-right: 0rem;
+  background-color: black;
+ 
+  
 
+}
 
+.Stats{
+    background-color: black;
+    p{
+        color:red
+        ;font-size: 20px;
+        
+    }
+}
+.MP{
+    background-color: black;
+    color: blue;
+    
+    p{
+        color:blue
+        ;font-size: 20px;
+        
+    }
+}
+.statz{
+    p{
+        font-size: 13px;
+        color:white;
+      
+        
+    }
+}
+.equipment1{
+    p{
+        font-size: 13px;
+        color:yellow
+    }
+}
+.Equipment{
+    p{
+        font-size: 20px;
+        color:green
+    }
+}
+.Title{
+    p{
+        font-size: 20px;
+        color: white;
+    }
 }

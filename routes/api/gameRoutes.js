@@ -3131,6 +3131,43 @@ const gameModel = {
     nextRoom: false,
 
 }
+const Game = {
+    player:{
+        sneak:1,
+        strength:1,
+        speech:1,
+        health:10,
+        MP:10,
+        bag:{
+            book:["book","potion",'sword']
+        },
+        level:1,
+        hand:false,
+        body:false,
+        head:false,
+        location:'maybe?'
+    },
+    game:{
+
+        intro:{
+            where:'firstShore',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3ceXNVuNei_lqplDuAcFQMc10R7Y0jFWUw5MKRXIaJHwVPEPdi2OCQRs1aoJunTigl2Mn5OwDF0_SvGbW5FCntOlFiqHgyTUsaM4J6tRMfJzdf2Yb6SDoqzUXZzgYRp6lhNP_x5m9rVgv0YmtWnGpMHRg=w1142-h903-no?authuser=0",
+            dialog:"You wake up to the waves crashing around you. Mind fuzzy and memory gone. Seems that you have washed up on an island but you don't remember getting on a boat...",
+            responses:['next'],
+            next:'wall'
+
+        },
+        wall:{
+            where:'firstShore',
+            src:'https://lh3.googleusercontent.com/KgaAWZjmrNprK6MIGRFPH4xTpjqh5y0Ao7HX57XDgshCcOa10MC34IkweH1aIb8hgcS4iEsn5cPvh0qwsHAGP2eJuH-HK01V3dIBmnuKAmmuyKiNZeNo51S_04J-8sfECpPRBz6lUEBc4w4G1QDh1IL35AyAJQfjmfnBZNe_v0N1QtgPFo1SrqNP3ui0FGvtaqLovompTb_SCGDkSwtRENM-NX9r4Z0zlN9AwTz-LwkuxqYN1CaNWXksCrNMp1pgU6aFnhnwq7cW_zQnSXN6-EL7Pu3_fbH6Io9l7Lbn7eqaFMA8NrctMud7Mm5lMAgeBuEZyA7WQCeav1SZPEbAK_VPcxOupfOTeai85ZetDMDyWDiLSNLqrKRequ88v3SYs0_xFuOH_gIokajReeeqaNapakYTQKm0o_yHvKbySCyksxsLl5LY4_bY2P46cI5KWcVx-k-HW0bNVbXXon4ijqmJDilhQN3L83-BWl99Ul37rDKd4nYkG-yGvaP7Fs0PjF-r6kSww4vVKsL_4niKf9C2CD8aeXSnWGIQjjEVcppRDfcUb2AvUScH3FgzDqinQFAvXwms_BpsDSYwCtmKyIqCpC2rd_rsFuvoL12I05MlDfzs0_q0qh-V1POs0885Oc_own9V5yfsHVKgY8Sr8ZU8gmDVqC6wWD6lPsAT5K54hJeUTN3xRI6iA0rWcEI=w1107-h903-no?authuser=0',
+            dialog:'So many colors... You can not seem to peel your eyes away from the wonderful patterns, But a voice booms from the left. This makes you jump and breaks the spell.',
+            responses:['next'],
+            next:'intro'
+        }
+
+    }
+}
+
 
 
 
@@ -3140,63 +3177,26 @@ const gameModel = {
 router.post('/newGame', function (req, res, next) {
     //need to add the players to the game Model
 
-
+    console.log(req.body)
     let j = 1
 
-    let playerObjectsArray = req.body.map(player => {
-
-
-        let obj = {
-            userName: 'string',
-            character: {//where the character object will be places when chosen
-            },
-            characterChosen: false,
-            location: 'x7y5',
-            item: [],
-            alive: true,
-            turn: false,
-            traitor: false,
-            companions: [],
-            movementSpeed: 0, // this is where the door should deduct the movement from when the player moves and is refreshed at the beginning of each turn ,
-            email: player,
-            ready: false
-
-
-
-
-
-
-        }
-        let name = obj.email.split('.')
-
-        let num = `player${j}`
-        gameModel.players
-
-        gameModel.players[num] = obj
-
-        j++
-    })
+    
 
     console.log(j)
 
-    db.Game.create({ game: gameModel })
+    db.Game.create({ game: Game })
         .then((data) => {
-            // function that will put the players nested in the correct spot in the game data
-
-
-            let gameMaker = req.body
             console.log(data)
+            // function that will put the players nested in the correct spot in the game data
+            db.User.findOneAndUpdate(
+                { email:req.body.email},
+                { $push: { games: data._id } },
+                function (err, data) {
+                    console.log(err)
+                }
+            )
 
-            req.body.map(player => {
-                console.log(player)
-                db.User.findOneAndUpdate(
-                    { email: player },
-                    { $push: { games: data._id } },
-                    function (err, data) {
-
-                    }
-                )
-            })
+           
 
 
 

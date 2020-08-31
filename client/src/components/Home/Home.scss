@@ -1,0 +1,61 @@
+.playerCard{
+    background-color: black;
+    width: 100%;
+    height: auto;
+}
+.home{
+    background-color: black;
+}
+.display{
+    background-image:url('https://lh3.googleusercontent.com/pw/ACtC-3fpldi4fI8LbxMF6oEjAHT6NcQ9nfg2plBaGDLFw5X19k5OPZBw9TVle0wXP3qzrDSCEG4D23IKeCeeYb2MaJBUiO2rk7mdY2KrLEkdksGUX-OzLcTRQxrAiEDYTxq1Ogkp9lAd54pMKcaGW6mbtxnhMQ=w1097-h903-no?authuser=0');
+    height: 100%;
+    p{
+        font-size: 100px;
+    }
+    
+}
+.holder{
+    height:100%
+}
+.textHolder{
+background-color: rgb(66, 66, 66);
+height: 8rem;
+
+padding-top:1rem;
+padding-left: 1rem;;
+
+    p{
+        font-size: 20px;
+        color:white
+        
+
+    }
+}
+.ActionArea{
+    height: 5in;
+    background-color: black;
+    
+    
+}
+.speech-bubble {
+	position: relative;
+	background: #00aabb;
+    border-radius: .4em;
+    opacity: 80%;
+    z-index: 1000000;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}

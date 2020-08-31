@@ -30,7 +30,7 @@ function GameDisplay(props) {
         
         
         
-        <StartGame user={props.user}></StartGame>
+        <StartGame user={user}></StartGame>
         <br />
         <h5  > Current Games : </h5>
         <hr />
@@ -40,15 +40,11 @@ function GameDisplay(props) {
             {/* need to make the Players Button Show a list of Players in that game */}
             {/* make GameName show the name of the game that is looked up with the _id */}
             {user.games.map(game => {
+                console.log(game)
                 return (<li> {game}
                 {/* use an route to get the game object by finding by id */}
                     <hr /> <button onClick={()=>{gameLink(game)}} >Start</button>
-                    <Popup trigger={<button className='' >Players</button>} >
-                       {/* this is where i need to map through the players on  the game object  */}
-                       <ul>
-                           {/* here is where the players will be displayed */}
-                       </ul>
-                    </Popup>
+                   
 
 
 

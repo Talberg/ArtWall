@@ -9,8 +9,8 @@ const gameSchema = new Schema({
     game: {
         type: Object
     },
-    players:{
-        type:Array
+    player:{
+        type:String
     },
     finished:{
         type:Boolean

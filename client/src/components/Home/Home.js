@@ -5,6 +5,8 @@ import RequestBox from '../RequestBox/RequestBox'
 import FriendsList from '../FriendsList/FriendsList'
 import StartGame from '../StartGame/StartGame'
 import GameDisplay from '../GameDisplay/GameDisplay'
+import GameCard from '../GameCard/GameCard'
+import TextArea from '../TextArea/TextArea'
 
 function Home(props){
     console.log(props)
@@ -12,11 +14,13 @@ return(<>{props.user.loggedIn ? <div className='home'>
 <p>HEllO : {props.user.user.username}</p>
 
 <GameDisplay user={props.user}></GameDisplay>
-<FriendsList user={props.user}  ></FriendsList>
+
 <RequestBox user={props.user.user}></RequestBox>
 
 
 
-</div> :<div className='home'><p>Add in a link to the sign up page here</p></div> }</>)
+</div> :
+    
+    <></> }</>)
 }
 export default Home

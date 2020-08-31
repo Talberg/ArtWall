@@ -3,6 +3,7 @@ import './GameState.scss'
 import GameCard from '../GameCard/GameCard'
 import Map from '../Map/Map'
 import API from '../../utils/API'
+import TextArea from '../TextArea/TextArea'
 
 function GameState(props){
     
@@ -12,6 +13,7 @@ function GameState(props){
     })
     const [rooms, setRooms] = useState( )
     const [savedGame,setSave] = useState( )
+    const [currentState,setState] = useState( )
 
 
 
@@ -20,9 +22,10 @@ function GameState(props){
     }
     function fullLoad(){
         setLoaded({loaded:true})
-        setRooms({
-            ...game.game
-        })
+        // this is where the save point will be rea bot for now it will just bwe a one off thing. 
+        //function that will start the game using the into values
+        console.log(game.game.game.intro.dialog)
+        setState(game.game.game.intro)
 
     }
 
@@ -73,9 +76,21 @@ console.log(game)
 
 
 
+
 return(<div  >
    
-    {props.user.loggedIn ? <> {rooms ? <><Map user={props.user} changeState={setRooms} rooms={rooms} save={setSave} ></Map></>:<> <h1>LOADING!!!!</h1></>} </> : <></> }
+    {loaded.loaded ? <> 
+      <div className='home'>
+    <div className='row bigRow' > 
+    <div className='col-2 '> <GameCard></GameCard> </div>
+    {console.log(rooms)}
+    {console.log('game')}
+    
+    <TextArea changeState={setState} state={currentState}  game={game.game.game}  img='src here' responses='next' text={currentState.dialog}  ></TextArea>
+  
+    
+    </div>
+</div> </> : <></> }
     
     {/* {rooms ? <><Map user={props.user} changeState={setRooms} rooms={rooms} ></Map></>:<> <h1>LOADING!!!!</h1></>} */}
 </div>)

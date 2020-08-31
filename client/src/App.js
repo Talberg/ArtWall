@@ -35,7 +35,7 @@ function App() {
       <Router>
         <>
           <TopNav />
-          <Container>
+          
             <Switch>
             <Route exact path="/" ><Home user={user}></Home></Route>
               <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
@@ -47,7 +47,7 @@ function App() {
 
               <Route component={NoMatch} />
             </Switch>
-          </Container>
+          
         
         </>
       </Router>

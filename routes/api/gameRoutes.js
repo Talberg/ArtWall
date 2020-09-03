@@ -2,6 +2,7 @@ const router = require("express").Router();
 const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
+const { PromiseProvider } = require("mongoose");
 const gameModel = {
     open: {
         'x0y0': false,
@@ -3148,24 +3149,103 @@ const Game = {
         location:'maybe?'
     },
     game:{
-
+      
+        
+           
+     
         intro:{
             where:'firstShore',
-            src:"https://lh3.googleusercontent.com/pw/ACtC-3ceXNVuNei_lqplDuAcFQMc10R7Y0jFWUw5MKRXIaJHwVPEPdi2OCQRs1aoJunTigl2Mn5OwDF0_SvGbW5FCntOlFiqHgyTUsaM4J6tRMfJzdf2Yb6SDoqzUXZzgYRp6lhNP_x5m9rVgv0YmtWnGpMHRg=w1142-h903-no?authuser=0",
-            dialog:"You wake up to the waves crashing around you. Mind fuzzy and memory gone. Seems that you have washed up on an island but you don't remember getting on a boat...",
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3euveF8n4fhhLPcfK_B9gzemc7Fi1dxdphTHD0XITkZdWgNNBUvLlsKVzcX3aL2jZnOKWAPvvROzQ9jD6WFeGRa9dHd4nDD9rauHpf8Af0-1frcSd_cNs5s8hZ5zGDwOlI_eRZ5Rn9Vfzs2OpLUa74n3Q=w1213-h903-no?authuser=0",
+            dialog:"You wake up to the waves crashing around you. Blue as far as the eye can see. You sit upon small rock formation that looks like it was built rather than sculpted by the ocean. You climb atop the rocks and can barley make out an island on the horizon. ",
+            responses:['next'],
+            next:'intro2'
+
+        },
+        intro2:{
+            where:'firstShore',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3euveF8n4fhhLPcfK_B9gzemc7Fi1dxdphTHD0XITkZdWgNNBUvLlsKVzcX3aL2jZnOKWAPvvROzQ9jD6WFeGRa9dHd4nDD9rauHpf8Af0-1frcSd_cNs5s8hZ5zGDwOlI_eRZ5Rn9Vfzs2OpLUa74n3Q=w1213-h903-no?authuser=0",
+            dialog:"There is a rowboat tied up to a dock made of stone. Even the ropes seem to be made of stone. This made the wood of the boat stand out. ",
             responses:['next'],
             next:'wall'
 
         },
         wall:{
             where:'firstShore',
-            src:'https://lh3.googleusercontent.com/KgaAWZjmrNprK6MIGRFPH4xTpjqh5y0Ao7HX57XDgshCcOa10MC34IkweH1aIb8hgcS4iEsn5cPvh0qwsHAGP2eJuH-HK01V3dIBmnuKAmmuyKiNZeNo51S_04J-8sfECpPRBz6lUEBc4w4G1QDh1IL35AyAJQfjmfnBZNe_v0N1QtgPFo1SrqNP3ui0FGvtaqLovompTb_SCGDkSwtRENM-NX9r4Z0zlN9AwTz-LwkuxqYN1CaNWXksCrNMp1pgU6aFnhnwq7cW_zQnSXN6-EL7Pu3_fbH6Io9l7Lbn7eqaFMA8NrctMud7Mm5lMAgeBuEZyA7WQCeav1SZPEbAK_VPcxOupfOTeai85ZetDMDyWDiLSNLqrKRequ88v3SYs0_xFuOH_gIokajReeeqaNapakYTQKm0o_yHvKbySCyksxsLl5LY4_bY2P46cI5KWcVx-k-HW0bNVbXXon4ijqmJDilhQN3L83-BWl99Ul37rDKd4nYkG-yGvaP7Fs0PjF-r6kSww4vVKsL_4niKf9C2CD8aeXSnWGIQjjEVcppRDfcUb2AvUScH3FgzDqinQFAvXwms_BpsDSYwCtmKyIqCpC2rd_rsFuvoL12I05MlDfzs0_q0qh-V1POs0885Oc_own9V5yfsHVKgY8Sr8ZU8gmDVqC6wWD6lPsAT5K54hJeUTN3xRI6iA0rWcEI=w1107-h903-no?authuser=0',
-            dialog:'So many colors... You can not seem to peel your eyes away from the wonderful patterns, But a voice booms from the left. This makes you jump and breaks the spell.',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3eAIE28YY7WfPSyVH3g0CiaTt-U_huwXIroyxo3_HtrhbJf4q11ald29kAywfmwf7e1AFpT8G8yYpfklLTOd5Gzh7pqDgFsaR8LCD7tWR6fLCnxYqZOg7-69bpt9nGJIRUHPLfUWhxXJXoBj8h6ppOOMQ=w1031-h763-no?authuser=0',
+            dialog:'You climb on the boat, using the oar you break the stone rope and push of the boat and begin the journey to the new island.',
             responses:['next'],
-            next:'intro'
+            next:'island'
+        },
+        island:{
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3eAIE28YY7WfPSyVH3g0CiaTt-U_huwXIroyxo3_HtrhbJf4q11ald29kAywfmwf7e1AFpT8G8yYpfklLTOd5Gzh7pqDgFsaR8LCD7tWR6fLCnxYqZOg7-69bpt9nGJIRUHPLfUWhxXJXoBj8h6ppOOMQ=w1031-h763-no?authuser=0',
+            dialog:'After rowing for an hour or so you are about 100 yards from the island, you keep thinking you see a flash come from the island out of the corner of your eye but every time you look nothing is there. The water has become to shallow for your boat so you have to walk to the beach.',
+            next:'owl'
+        },
+        owl:{
+            src:'',
+            dialog:'Soaking wet and exhausted you collapsed  on the sand with releif. But just as you start to nod off the flash is there again.  Startled you sit up and finally see the source of the light. An Owl. ',
+            next:'owlIntro'
+
+        },
+        owlIntro:{
+            src:'owl pic',
+            dialog: 'In your head you hear, "Welcome to the Distant Temple, please dont be alarmed, ,I am here to help you. But you are going to have to help me in order to help yourself."',
+            next:'owlIntro2'
+        },
+        owlIntro2:{
+            src: 'owl pic',
+            dialog:'So I need 3 things from you. There is a cave to your left that was recently sealed off by a fallen tree, and in there is the ONLY place that my favorite berry grows. Forward there is a long path that will lead you to a friend of mine that is holding a ring for me he does bite sometimes.',
+            next:'owlIntro3'
+        },
+        owlIntro3:{
+            src:'owl pic',
+            dialog:'To the right along the beach are sleeping rocks, if you wake them up it will not be pretty. But there is an old sword in a tree that you will need over there before I can get you off this Island.',
+            next:'boatGone'
+        }, 
+        boatGone:{
+            src:'owl pic',
+            dialog:'Oh also your boat seems to have left you, and on its way back home. Such a good boat...',
+            next:'BeachHub1'
+        },
+        BeachHub1:{
+            // here is where the quest area should propogate with the current quests. Should be a "hub area that you can go to each place and put in a save state here also"
+            movement:['Cave','Rocks','Jungle'],
+            dialog:'Where are you going?',
+            next:'Obelisk',
+            checkpoint:"allThree"
+        
+        },
+        Cave:{
+            checkpoint:'log',
+            choice:['Attack Log','Move Log','Back'],
+            dialog:'A large log blocks the entrance to the cave, what would you like to do?',
+
+            
+        },
+        LogBreaks:{
+            item:'Bark',
+            src:'cave bark',
+            dialog:'You break the log in half with your strength. A piece of the log splinters off, you pick it up and put it in your pocket.',
+            next:'cave'
+
+        }, 
+        LogAttackFail:{
+            damage:2,
+            dialog:'You lose health, be carful!',
+            next:'Cave',
+            
+
         }
 
-    }
+
+
+
+      
+
+    },
+    save:'intro'
+  
+
 }
 
 

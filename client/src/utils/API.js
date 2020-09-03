@@ -100,6 +100,17 @@ export default {
   loseKnowledge(mulitplier,rooms,player){
     
 
+  },
+  AttackLog(attackRoll){
+    
+      // attack roll here 
+      if(attackRoll>15){
+          return('LogBreaks')
+      }
+      if(attackRoll<15){
+          return('LogAttackFail')
+      
+  }
   }
   
 

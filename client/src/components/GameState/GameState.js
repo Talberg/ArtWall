@@ -14,6 +14,13 @@ function GameState(props){
     const [rooms, setRooms] = useState( )
     const [savedGame,setSave] = useState( )
     const [currentState,setState] = useState( )
+    const [currentQuest,setQuest] = useState( )
+    const [Checkpoint,setCheckpoint] = useState(
+        {
+            log:false
+        }
+     )
+    
 
 
 
@@ -22,10 +29,14 @@ function GameState(props){
     }
     function fullLoad(){
         setLoaded({loaded:true})
+        
+        setRooms({
+            ...game.game
+        })
         // this is where the save point will be rea bot for now it will just bwe a one off thing. 
         //function that will start the game using the into values
         console.log(game.game.game.intro.dialog)
-        setState(game.game.game.intro)
+        setState(game.game.game[game.game.save])
 
     }
 
@@ -80,13 +91,14 @@ console.log(game)
 return(<div  >
    
     {loaded.loaded ? <> 
-      <div className='home'>
+   
+      <div className='home'> {console.log(game)}
     <div className='row bigRow' > 
     <div className='col-2 '> <GameCard></GameCard> </div>
     {console.log(rooms)}
     {console.log('game')}
     
-    <TextArea changeState={setState} state={currentState}  game={game.game.game}  img='src here' responses='next' text={currentState.dialog}  ></TextArea>
+    <TextArea rooms={rooms} setRooms={setRooms} changeState={setState} state={currentState}  game={game.game.game} fullGame={game.game}  img='src here' responses='next' text={currentState.dialog}  ></TextArea>
   
     
     </div>

@@ -3137,11 +3137,9 @@ const Game = {
         sneak:1,
         strength:1,
         speech:1,
-        health:10,
+        health:20,
         MP:10,
-        bag:{
-            book:["book","potion",'sword']
-        },
+        bag:[],
         level:1,
         hand:false,
         body:false,
@@ -3182,28 +3180,28 @@ const Game = {
             next:'owl'
         },
         owl:{
-            src:'',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
             dialog:'Soaking wet and exhausted you collapsed  on the sand with releif. But just as you start to nod off the flash is there again.  Startled you sit up and finally see the source of the light. An Owl. ',
             next:'owlIntro'
 
         },
         owlIntro:{
-            src:'owl pic',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
             dialog: 'In your head you hear, "Welcome to the Distant Temple, please dont be alarmed, ,I am here to help you. But you are going to have to help me in order to help yourself."',
             next:'owlIntro2'
         },
         owlIntro2:{
-            src: 'owl pic',
+            src: 'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
             dialog:'So I need 3 things from you. There is a cave to your left that was recently sealed off by a fallen tree, and in there is the ONLY place that my favorite berry grows. Forward there is a long path that will lead you to a friend of mine that is holding a ring for me he does bite sometimes.',
             next:'owlIntro3'
         },
         owlIntro3:{
-            src:'owl pic',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
             dialog:'To the right along the beach are sleeping rocks, if you wake them up it will not be pretty. But there is an old sword in a tree that you will need over there before I can get you off this Island.',
             next:'boatGone'
         }, 
         boatGone:{
-            src:'owl pic',
+            src:'boat bye bye pic',
             dialog:'Oh also your boat seems to have left you, and on its way back home. Such a good boat...',
             next:'BeachHub1'
         },
@@ -3217,8 +3215,12 @@ const Game = {
         },
         Cave:{
             checkpoint:'log',
-            choice:['Attack Log','Move Log','Back'],
+            choice:['Attack Log','Move Log'],
             dialog:'A large log blocks the entrance to the cave, what would you like to do?',
+            enter:'InsideCave',
+            back:'BeachHub1',
+            dialog2:'The log is now out of the way, cool air rushes past you from the mouth of the cave. Go in or back? '
+            
 
             
         },
@@ -3226,7 +3228,8 @@ const Game = {
             item:'Bark',
             src:'cave bark',
             dialog:'You break the log in half with your strength. A piece of the log splinters off, you pick it up and put it in your pocket.',
-            next:'cave'
+            next:'LogCheckpoint',
+            
 
         }, 
         LogAttackFail:{
@@ -3234,8 +3237,172 @@ const Game = {
             dialog:'You lose health, be carful!',
             next:'Cave',
             
+            
 
-        }
+        },
+        LogCheckpoint:{
+            checkpointReached:'log',
+            dialog:"You have Cleared the log CHECKPOINT",
+            next:'Cave'
+
+
+        },
+        InsideCave:{
+            dialog:'You walk into the cave, water drips from stalagmites. Under each Stalagmite is a bush dotted with rainbow colored berries. Each bush also has a small lizard sleeping in front of it. All you can make out is the size of each lizard. All are different sizes ranging from a few inches to about a foot long. Which Lizard"s bush would you like to choose? ',
+            movement:['Small Lizard','Medium With 2 Tails','Large no tail'],
+            back:'Cave',
+            checkpoint:'lizard',
+            dialog2:'The lizards and the bushes seem to have turned into stalagmite versions of themselves...  ',
+            enter:'BeachHub1'
+        },
+        SmallLizard:{
+            choice:['Sneak Past Lizard', 'Attack on the lizard'],
+            dialog:'There is a small lizard curled up, Would you rather step on the lizard or sneak past?'
+
+        },
+        MediumWith2Tails:{
+            choice:['Sneak Past Lizard','Attack on the lizard'],
+            dialog:'There is a medium sized lizard with 2 tails. What do you do?'
+        },
+        Largenotail:{
+            choice:['Sneak Past Lizard','Attack on the lizard'],
+            dialog:'The largest lizard has no tail and is snoring load. What do you do?'
+
+        },
+        LizardSneakSucc:{
+            dialog:'You sneak past the sleeping lizard and pick one berry of each color. Without making a sound you sneak back out side the cave',
+            next:'LizardCheckpoint',
+            item:'RainbowBerries'
+            
+
+
+        },
+        LizardAttackSucc:{
+            dialog:'You crush the lizard Under your boot',
+            next:'LizardCheckpoint',
+            item:'RainbowBerries'
+            
+
+
+        },
+        LizardFail:{
+            dialog:'The lizard bites you but not before you grab the berries',
+            next:'LizardCheckpoint',
+            item:'RainbowBerries',
+            damage:'2'
+        },
+        LizardCheckpoint:{
+            dialog:'Checkpoint Reached!',
+            next:'InsideCave',
+            checkpointReached:'lizard',
+        },
+        Jungle:{
+             dialog:'The path through the jungle is thick with vegitation. Deeper and Deeper into the jungle you go hoping that the Owl"s friend is easy to spot...',
+             next:'DeepJungle',
+             back:'BeachHub1'
+             
+        },
+        DeepJungle:{
+            dialog:'Spiderwebs block your path. There is a sign on the other side of the webs but you cant read it from here. What will you do?',
+            choice:['Sneak Past The Webs','Attack The Webs'],
+            back:'Jungle'
+
+        },
+        SpiderSneakSucc:{
+            dialog:'You carefully  sneak past the webs',
+            next:'SpiderWeb',
+            
+
+            
+        },
+        SpiderSneakFail:{
+            dialog:'You brush the webs with your shoulder, thousands of spiders stream down the web! You run but not fast enough! You are bitten!',
+            damage:4,
+            next:"SpiderWeb"
+        },
+        SpiderWeb:{
+            dialog:'You pocket some of the rope like webs',
+            item:'Spiderweb',
+            next:'SpiderCheckpoint',
+
+        },
+        SpiderCheckpoint:{
+            dialog:'Spider Checkpoint reached',
+            checkpointReached:'spider',
+            next:'Sign'
+        },
+        MoveLogSucc:{
+            dialog:'You move the log out of your path.',
+            next:'LogCheckpoint',
+            item:"Grub"
+
+        },
+        MoveLogFail:{
+            dialog:'You try hard to move the log but you only pick up a few inches then drop it on your toe! Take 2 Damage',
+            damage:2,
+            next:'Cave'
+        },
+        Sign:{
+            dialog:'Sign Reads: "Welcome, I am Home". It is places next to a shallow hole. ',
+            next:'Hole'
+        },
+        Hole:{
+            dialog:'At the bottom of the hole, a snake is curled and ready to strike. "Welcome to my home! I bet that Owl sent you to take my ring." as the snake uncoils you catch a the shine of gold at the tip of its tail. What will you do?  "',
+            give:'Grub',
+            choice:['Attack the Snake', 'Ask Snake for the Ring'],
+            checkpoint:'hole',
+            dialog2:'Would you like to Help the poor guy?',
+            enter:'Help The Snake',
+            back:'BeachHub1'
+
+        },
+        AttackSnakeSucc:{
+            dialog:'You jump down on to the snake and grab the ring before the snake can react you are out of the hole, ring in hand!',
+
+            next:'Ring'
+        },
+        AttackSnakeFail:{
+            dialog:'You jump in the hole but the snake moves, you grab the ring, but before you leave the hole the snake bites you! Take 4 Damage! ',
+            damage:4,
+            next:"Ring"
+        },
+        AskSnakeSucc:{
+            dialog:'You ask the snake nicely for the Owl ring. After a second the answer is clear as the snake moves off of the ring. "Okay, take it, no use to me anyways!" You pick up the Ring',
+            next:'Ring'
+        },
+        AskSnakeFail:{  
+            dialog:'"FIGHT ME FOR IT!',
+            choice:['Attack the Snake'],
+            
+
+        },
+        Ring:{
+            dialog:'You pocket the Gold ring with a blue stone',
+            item:'Ring',
+            next:'HoleCheckpoint'
+        },
+        HoleCheckpoint:{
+            dialog:'As you leave the hole it collapses around the snake, you can hear muffled screams coming from the ruble',
+            checkpointReached:'hole',
+            next:'Hole'
+        },
+        HelpTheSnake:{
+            dialog:'You cant help....',
+            back:'Hole',
+        },
+        AttackWebSucc:{
+            dialog:'You run so fast through the webs that the spiders dont have time to bite you.',
+            next:'SpiderWeb'
+        },
+        AttackWebFail:{
+            dialog:'You are to slow, the spiders rush you, biting your exposed skin! Take 4 damage',
+            damage:4,
+            next:'SpiderWeb'
+        },
+
+
+
+
 
 
 
@@ -3243,7 +3410,12 @@ const Game = {
       
 
     },
-    save:'intro'
+    save:'intro',
+    checkPoint:{
+        log:false,
+        lizard:false,
+        spider:false
+    }
   
 
 }

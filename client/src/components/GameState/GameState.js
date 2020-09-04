@@ -94,11 +94,11 @@ return(<div  >
    
       <div className='home'> {console.log(game)}
     <div className='row bigRow' > 
-    <div className='col-2 '> <GameCard></GameCard> </div>
+    <div className='col-2 '> <GameCard player={rooms.player}></GameCard> </div>
     {console.log(rooms)}
     {console.log('game')}
     
-    <TextArea rooms={rooms} setRooms={setRooms} changeState={setState} state={currentState}  game={game.game.game} fullGame={game.game}  img='src here' responses='next' text={currentState.dialog}  ></TextArea>
+    <TextArea rooms={rooms} setRooms={setRooms} changeState={setState} state={currentState}  game={game.game.game} fullGame={game.game}  img='src here' responses='next' text={rooms.game[rooms.save].dialog}  ></TextArea>
   
     
     </div>

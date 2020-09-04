@@ -111,6 +111,62 @@ export default {
           return('LogAttackFail')
       
   }
+  },
+  SneakPastLizard(sneakRoll){
+     if(sneakRoll>5){
+       return('LizardSneakSucc')
+     }
+     else{
+       return('LizardFail')
+     }
+  },
+  Attackonthelizard(attackRoll){
+    if(attackRoll>5){
+      return('LizardAttackSucc')
+    }
+    else{return('LizardFail')}
+  },
+  SneakPastTheWebs(sneakRoll){
+    if(sneakRoll>10){
+      return('SpiderSneakSucc')
+
+    }
+    else{
+      return("SpiderSneakFail")
+    }
+  },
+  MoveLog(attackRoll){
+    if(attackRoll>5){
+      return('MoveLogSucc')
+    }
+    else{
+      return('MoveLogFail')
+    }
+  },
+  AttacktheSnake(attackRoll){
+    if(attackRoll>15){
+      return("AttackSnakeSucc")
+    }
+    else{
+      return('AttackSnakeFail')
+    }
+  },
+  AskSnakefortheRing(speechRoll){
+    if(speechRoll>4){
+      return('AskSnakeSucc')
+
+    }
+    else{
+      return('AskSnakeSucc')
+    }
+  },
+  AttackTheWebs(attackRoll){
+    if(attackRoll>4){
+      return('AttackWebSucc')
+    }
+    else{
+      return('AttackWebFail')
+    }
   }
   
 

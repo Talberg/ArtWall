@@ -29,6 +29,7 @@ function GameCard(props) {
 
 
     }
+    let player= props.player
 
 
     return (
@@ -37,13 +38,13 @@ function GameCard(props) {
 
             <div className='row'>
 
-                <div className='col-12 Title'> <p> Health:  {PlayerStats.health}</p></div>
-                <div className='col-12 Title '> <p> Magic Power: {PlayerStats.MP}</p></div>
+                <div className='col-12 Title'> <p> Health:  {player.health}</p></div>
+                <div className='col-12 Title '> <p> Magic Power: {player.MP}</p></div>
                 <div className='col-12 Title'> <p> Stats: </p></div>
-                <div className='col-6 statz'> <p> Sneak:+ {PlayerStats.sneak} </p></div>
-                <div className='col-6 statz'> <p> Strength:+ {PlayerStats.strength} </p></div>
-                <div className='col-6 statz'> <p> Magic:+ {PlayerStats.magic} </p></div>
-                <div className='col-6 statz'> <p> Speech:+ {PlayerStats.speech} </p></div>
+                <div className='col-6 statz'> <p> Sneak:+ {player.sneak} </p></div>
+                <div className='col-6 statz'> <p> Strength:+ {player.strength} </p></div>
+                <div className='col-6 statz'> <p> Magic:+ {player.magic} </p></div>
+                <div className='col-6 statz'> <p> Speech:+ {player.speech} </p></div>
                 <br></br>
                 <br></br>
 
@@ -51,10 +52,15 @@ function GameCard(props) {
                 <div className='col-4 equipment1'> <p>Hand</p>  </div>
                 <div className='col-4 equipment1'> <p>Body</p>  </div>
                 <div className='col-4 equipment1'> <p>Head</p>  </div>
-                <div className='col-4 equipment1'> <p>{PlayerStats.hand}</p>  </div>
-                <div className='col-4 equipment1'> <p>{PlayerStats.body}</p>  </div>
-                <div className='col-4 equipment1'> <p>{PlayerStats.head}</p>  </div>
+                <div className='col-4 equipment1'> <p>{player.hand}</p>  </div>
+                <div className='col-4 equipment1'> <p>{player.body}</p>  </div>
+                <div className='col-4 equipment1'> <p>{player.head}</p>  </div>
                 <div className='col-12 Title'> <p> Backpack: </p></div>
+                <div className='col-12 Title '> <p> <ul>
+                        {player.bag.map(item=>{
+                            return(<li>{item}</li>)
+                        })}
+                                </ul> </p></div>
               {/* This will be where the backpack is maped through  */}
                 
 

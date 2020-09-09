@@ -167,7 +167,28 @@ export default {
     else{
       return('AttackWebFail')
     }
+  },
+  RunThroughTheRocks(attackRoll){
+    if(attackRoll>7){
+      return('RunRuckSucc')
+    }
+    else{
+      return('RunRockFail')
+    }
+  },
+  SneakThoughTheRocks(sneakRoll){
+    if(sneakRoll>4){
+      return('SneakRockSucc')
+
+    }
+    else{
+      return('SneakRockFail')
+    }
+  },
+  AskRockForSafePassage(){
+    return('AskRock')
   }
+
   
 
 

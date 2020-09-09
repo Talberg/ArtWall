@@ -3133,6 +3133,13 @@ const gameModel = {
 
 }
 const Game = {
+    levels:{
+        1:10,
+        2:20,
+        3:30,
+        4:40,
+
+    },
     player:{
         sneak:1,
         strength:1,
@@ -3140,13 +3147,54 @@ const Game = {
         health:20,
         MP:10,
         bag:[],
+        spells:[],
         level:1,
-        hand:false,
+        weapon:'Stick',
         body:false,
         head:false,
-        location:'maybe?'
+        location:'maybe?',
+        totalXp:0
     },
+    spells:{
+
+    },
+    weapons:{
+        Sword:{
+            Name:'Sword',
+            Attack:3,
+            Magic:1,
+            
+        },
+        Stick:{
+            Name:'Stick',
+            Attack:1,
+            Magic:1
+        }
+    },
+    enemies:{
+        SandWorm:{
+            name:'Sand Worm',
+            health:10,
+            attackMin:10,
+            damage:2,
+                    }
+    },
+    heads:{
+        CoconutHat:{
+
+        }
+    },
+    bodies:{
+        CoconutBra:{
+            
+
+        }
+    },
+
+
+
     game:{
+
       
         
            
@@ -3210,7 +3258,8 @@ const Game = {
             movement:['Cave','Rocks','Jungle'],
             dialog:'Where are you going?',
             next:'Obelisk',
-            checkpoint:"allThree"
+            checkpoint:"allThree",
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3e3u5jsSWNdJStvJF5lllH7fMfA0xsTbZE_GJIx7t24jMCy4RmPlviJ8jofiU8hUM8Z4mdzus8tMCbEA4wiKRlHe2nfU06BjnD3FlwdCCYDfKyjkTloNvhGKOwuTnWR3M_c902GMm_UivbdmXUq8Q2esw=w1180-h843-no?authuser=0'
         
         },
         Cave:{
@@ -3399,6 +3448,70 @@ const Game = {
             damage:4,
             next:'SpiderWeb'
         },
+        Rocks:{
+            dialog:"The boulders move up and down. You can feel warm air coming from under them. The only passage is through 2 of them. What would you like to do?",
+            choice:['Run Through The Rocks','Sneak Though The Rocks', 'Ask Rock For Safe Passage'],
+            dialog2: 'The rocks know you are not a threat so they let you pass',
+            checkpoint:'rock',
+            enter:'BehindRocks'
+        },
+        RunRockSucc:{
+            dialog:'Sprinting as fast as you can you move past the rocks before they can close the passageway',
+            next:'BehindRocks'
+        },
+        RunRockFail:{
+            dialog:'You run face first into the boulders. They seem to chuckle as you collect yourself. Take 3 damage',
+            next:'Rocks',
+            damage:3
+
+
+        },
+        SneakRockSucc:{
+            dialog:"You walk past the rocks and they never knew you were there....",
+            next:'BehindRocks'
+
+        },
+        SneakRockFail:{
+            dialog:'The boulders close the passage as you approach it....',
+            next:'Rocks'
+        },
+        AskRock:{
+            dialog:"Sure thing! Thank you for asking nicely! RockPoint reached!",
+            checkpointReached:'rock',
+            next:'BehindRocks'
+        },
+        BehindRocks:{
+            dialog:'You can make out a small shrine at the edge of the Jungle. You walk to the shrine.',
+            next:'Shrine'
+        },
+        Shrine:{
+            dialog:'Carved stone with characters you have never seen before on it. Laying on the shrine is the sword that the Owl told you about.',
+            next:'Sword',
+            checkpoint:'sandWorm',
+            dialog2:'The Sandworm is now only a sand sculpture ',
+            enter:'BeachHub1'
+
+
+        },
+        Sword:{
+            dialog:'This old sword has seen better days but is still sharp. You nik your finger with the blade. A small drop of blood lands on the sand',
+            weapon:'Sword', 
+            next:'SandWorm'
+        },
+        ShrineCheckpoint:{
+            dialog:'You have the Sword now the fun will start.',
+            checkpointReached:'sandWorm',
+            next:'Shrine'
+        },
+        SandWorm:{
+            dialog:'A large worm burst from the sand where your blood dropped onto the sand. You must fight him to get back to get back to the path or try to make a run for it.  ',
+            enemy:'SandWorm',
+            next:'ShrineCheckpoint',
+        
+        }
+
+
+
 
 
 
@@ -3414,7 +3527,10 @@ const Game = {
     checkPoint:{
         log:false,
         lizard:false,
-        spider:false
+        spider:false,
+        rock:false,
+        shrine:false,
+        sandWorm:false, 
     }
   
 

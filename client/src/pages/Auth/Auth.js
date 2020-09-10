@@ -78,7 +78,7 @@ class Auth extends Component {
   render() {
     return (
       <div className="authBox">
-        {(this.props.action === "login") ? (
+        {(this.props.action === "login") ? (<>
           <Login
             username={this.state.username}
             password={this.state.password}
@@ -86,7 +86,9 @@ class Auth extends Component {
             handleInputChange={this.handleInputChange}
             message={this.state.message}
           />
-        ) : (
+         <a href='/signup'> <button  className='btn btn-secondary btn-block' > SignUp</button></a>
+         </> 
+        ) : (<>
             <Signup
               username={this.state.username}
               password={this.state.password}
@@ -96,6 +98,7 @@ class Auth extends Component {
               handleInputChange={this.handleInputChange}
               message={this.state.message}
             />
+             <a href='/login'> <button  className='btn btn-secondary btn-block' > Log In</button></a></>
           )}
       </div>
     )

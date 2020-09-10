@@ -11,57 +11,189 @@ function TextArea(props) {
     let save = saveState.next
     console.log(save)
     console.log(saveState)
-    let enemy= rooms.enemies[saveState.enemy]
+    let enemy = rooms.enemies[saveState.enemy]
     let dialog = saveState.dialog
     let CurrentWeapon = rooms.weapons[player.weapon]
     let NewWeapon = rooms.weapons[saveState.weapon]
-    console.log(CurrentWeapon)
+    let nextLevel = parseInt(player.level) + 1
+    let nextLevelXp = rooms.levels[nextLevel].xp
+    let nextLevelNew = rooms.levels[nextLevel].new
+    let InBackpack = rooms.save === "Backpack"
+    let items = rooms.items
+    
+
+
+    console.log(Object.keys(saveState))
+    function EndGame() {
+        setRooms({
+            ...rooms,
+            save: 'GameOver'
+        })
+    }
+    function useItem(item) {
+        console.log(item)
+        let itemObj= items[item]
+        console.log(itemObj)
+        let type= itemObj.type
+        let stat= itemObj.stat
+        let mod = itemObj.mod
+        let newBag = player.bag.filter(item=> item !== item)
+        console.log(newBag)
+       
+        
+        if(type === 'weapon'){
+            weapon(item,player.weapon)
+        }
+        if(type === 'potion'){
+            // new gate that needs to ask 'stat' and 'mod',
+            if(stat=== 'health'){
+                //heal the 'mod' amount ######## could be dynamic easy
+                let newHealth=  parseInt(player.health ) + parseInt(mod) 
+                if(newHealth >= player.maxHP){
+                    newHealth = player.maxHP
+                    setRooms({
+                        ...rooms,
+                        player:{
+                            ...player,
+                            health:newHealth,
+                            bag:newBag
+                        },
+                        save:save
+
+                    })
+                }
+                else{
+                    setRooms({
+                        ...rooms,
+                        player:{
+                            ...player,
+                            health:newHealth,
+                            bag:newBag
+                        },
+                        save:save
+
+                    })
+                }
+
+            }
+        }
+       
+    }
+    function TraitUp(trait) {
+        let traitLower = trait.toLowerCase()
+        console.log(traitLower)
+        let oldTrait = player[traitLower]
+        console.log(oldTrait)
+        let newTrait = oldTrait + 1
+        console.log(newTrait)
+        let oldHP = player.maxHP
+        let newHP= parseInt (oldHP) +5
+        console.log(newHP)
+        
+        
+        // need to make the max health increase and use health as current health. 
+        setRooms({
+            ...rooms,
+            player: {
+                ...player,
+                [traitLower]: newTrait,
+                maxHP:newHP,
+                health:newHP,
+                level:nextLevel
+            },
+            save: save
+        })
+
+    }
+    function levelUp(location) {
+        //redirect to the level up screen. 
+        console.log(rooms.save)
+        
+        setRooms({
+            ...rooms,
+            levels: {
+                ...rooms.levels,
+                [nextLevel]: {
+                    xp: nextLevelXp,
+                    new: false
+                }
+            },
+
+            game: {
+                ...rooms.game,
+                LevelUP: {
+                    ...rooms.game.LevelUP,
+                    next: rooms.save
+                }
+            },
+            save: 'LevelUP'
+
+
+        })
+
+    }
+    function GainXP() {
+        let NewXp = parseInt(player.xp) + parseInt(enemy.xp)
+        console.log(NewXp)
+        setRooms({
+            ...rooms,
+            player: {
+                ...player,
+                xp: NewXp
+            },
+            save: save
+        })
+    }
 
     function AttackEnemy() {
         let playerRoll = 11
         // roll(21)+parseInt(CurrentWeapon.Attack)
-        if(playerRoll>enemy.attackMin){
+        if (playerRoll > enemy.attackMin) {
             // add the weapon damage and then the attack of the player.
             let damage = parseInt(player.strength) + parseInt(CurrentWeapon.Attack)
             console.log(damage)
-            let EnemyNewHealth= parseInt(enemy.health)- damage
+            let EnemyNewHealth = parseInt(enemy.health) - damage
             console.log(EnemyNewHealth)
             setRooms({
                 ...rooms,
-                enemies:{...rooms.enemies,
-                    [saveState.enemy]:{
+                enemies: {
+                    ...rooms.enemies,
+                    [saveState.enemy]: {
                         ...enemy,
-                        health:EnemyNewHealth
+                        health: EnemyNewHealth
                     }
                 },
-                game:{...rooms.game,
-                    AttackEnemySucc:{
-                
-                        dialog:` Your attack lands and ${enemy.name} Takes ${damage} `,
-                        next:saveState.enemy
-                    }        
+                game: {
+                    ...rooms.game,
+                    AttackEnemySucc: {
+
+                        dialog: ` Your attack lands and ${enemy.name} Takes ${damage} `,
+                        next: saveState.enemy,
+
+                    }
                 },
-                save:'AttackEnemySucc',
+                save: 'AttackEnemySucc',
 
             })
-            
+
 
 
         }
-        else{
-            
+        else {
+
             // route to the AttackEnemyFail that then does the damage from there
             setRooms({
                 ...rooms,
-                
-                game:{...rooms.game,
-                    AttackEnemyFail:{
-                        damage:enemy.damage,
-                        dialog:` Your attack fails and ${enemy.name} lands an attack on you for ${enemy.damage} `,
-                        next:saveState.enemy
-                    }        
+
+                game: {
+                    ...rooms.game,
+                    AttackEnemyFail: {
+                        damage: enemy.damage,
+                        dialog: ` Your attack fails and ${enemy.name} lands an attack on you for ${enemy.damage} `,
+                        next: saveState.enemy
+                    }
                 },
-                save:'AttackEnemyFail',
+                save: 'AttackEnemyFail',
 
             })
 
@@ -73,17 +205,70 @@ function TextArea(props) {
 
     }
     function RunFromEnemy() {
+        let playerRoll = 16
+        // roll(21)+parseInt(player.speed)
+        if (playerRoll > 15) {
+            setRooms({
+                ...rooms,
+                enemies: {
+                    ...rooms.enemies,
+                    [saveState.enemy]: {
+                        ...enemy,
+                        health: 0
+                    }
+                }
+                ,
+
+                game: {
+                    ...rooms.game,
+                    RunFromEnemySucc: {
+
+                        dialog: ` You are fast enough to out run ${enemy.name}  `,
+                        next: saveState.enemy,
+
+
+                    }
+                },
+                save: 'RunFromEnemySucc',
+
+            })
+        }
+        else {
+            setRooms({
+                ...rooms,
+
+                game: {
+                    ...rooms.game,
+                    RunFromEnemyFail: {
+                        damage: enemy.damage,
+                        dialog: ` Your run fails and ${enemy.name} lands an attack on you for ${enemy.damage} `,
+                        next: saveState.enemy
+                    }
+                },
+                save: 'RunFromEnemyFail',
+
+            })
+        }
+
 
     }
 
-    function weapon() {
+    function weapon(choice,toBag,) {
+       
+        
+        let newBag = player.bag.filter(choice=> choice !== choice)
+        console.log(newBag)
+         let NewBag = [...newBag,toBag]
+         console.log(NewBag)
         setRooms({
             ...rooms,
             player: {
                 ...player,
-                weapon: saveState.weapon
+                weapon: choice,
+                bag:NewBag
+         
             },
-            save:save
+            save: save
         })
     }
 
@@ -119,7 +304,8 @@ function TextArea(props) {
             ...rooms, save: save,
             player: {
                 ...player, health: newHealth
-            }
+            },
+
         })
 
 
@@ -212,7 +398,7 @@ function TextArea(props) {
         <div className='col-8 display '>
             {/* this should be made into a componet and then fed in the values with props */}
             <div className='holder col-12'> <div className='textHolder speech-bubble '>
-
+                {/* Checkpoint Gate A */}
                 <p>{rooms.checkPoint[saveState.checkpoint] ? <>{saveState.dialog2}</> : <>  {saveState.dialog}</>} </p><div className='col-4 ' >
 
 
@@ -220,53 +406,89 @@ function TextArea(props) {
                     <div className='Next' >
                         {/* if the checkpoint is reached  */}
                         {saveState.back ? <button onClick={() => movement(saveState.back)}>Back</button> : <></>}
-                        {/* Weapon Gate */}
-                        {saveState.weapon ?
-                            //Player Weapon Gate
-                            player.weapon ?
-                        <><button onClick={() => weapon(player.weapon)}> KEEP {player.weapon} <ul><li>{player.weapon}</li><li>Attack:{CurrentWeapon.Attack}</li><li>Magic:{CurrentWeapon.Magic}</li></ul></button> 
-                        <button onClick={() => weapon(player.weapon)}> TAKE {saveState.weapon} <ul><li>{saveState.weapon}</li><li>Attack:{NewWeapon.Attack}</li><li>Magic:{NewWeapon.Magic}</li></ul></button> </>
-                                : <></>
-                            //Enemy Gate need to make the gate only open if the enemy is alive
-                            // need to make the first gate to if enmey then do the health 
-                            : <>
-                            
-                            
-                            
-                             {saveState.enemy? rooms.enemies[saveState.enemy].health>0 ? <><button onClick={AttackEnemy}> Attack with {player.weapon}</button> <button onClick={RunFromEnemy}>Run from {saveState.enemy}</button> </>  
-                            :<><button onClick={next}>Next</button> </>     
-                             
-                                //Item Gate
-                                : <>   {saveState.item ? <button onClick={pickup} >Pick up {saveState.item}</button>
-                                    : <>  {rooms.checkPoint[saveState.checkpoint] === true
-                                        ? <>
-                                            <button onClick={() => movement(saveState.enter)}  > {saveState.enter} </button>
-                                        </>
-                                        //Checkpoint Reached Gate
-                                        : <> {saveState.checkpointReached
-                                            ?
-                                            <button onClick={() => checkpoint()} > Checkpoint</button>
-                                            //Damage Gate
-                                            : <> {saveState.damage
+                        {player.xp >= nextLevelXp && nextLevelNew ? <button onClick={() => levelUp(props.rooms.save)}  >LEVEL UP</button> : <></>}
+                        {player.health <= 0
+                            ? <>
+                                <a href='/profile'> <button >End Game</button></a>
+                            </>
+                            : <>     {saveState.backpack
+                                ? <>
+                                    {player.bag.map(item => {
+
+                                        if(items[item].type === 'weapon'){
+                                            return (<button onClick={() => useItem(item)} >Equip {item}</button>)
+                                        }
+                                        if(items[item].type==='potion'){
+                                        return(<button onClick={()=>useItem(item)}>Drink {item}</button>)
+                                        }
+                                        else{
+                                        return(<button Click={()=>useItem(item)}>Look at {item}</button>)
+                                        }
+
+
+
+                                        
+                                    }
+
+                                    )}
+                                </>
+                                : <> {/* Weapon Gate */}
+                                    {saveState.weapon ?
+                                        //Player Weapon Gate
+                                        player.weapon ?
+                                            <><button onClick={() => weapon(player.weapon,saveState.weapon)}> KEEP {player.weapon} <ul><li>{player.weapon}</li><li>Attack:{CurrentWeapon.Attack}</li><li>Magic:{CurrentWeapon.Magic}</li></ul></button>
+                                                <button onClick={() => weapon(saveState.weapon,player.weapon)}> TAKE {saveState.weapon} <ul><li>{saveState.weapon}</li><li>Attack:{NewWeapon.Attack}</li><li>Magic:{NewWeapon.Magic}</li></ul></button> </>
+                                            : <></>
+                                        //Enemy Gate need to make the gate only open if the enemy is alive
+                                        // need to make the first gate to if enmey then do the health 
+                                        : <>
+
+                                            {saveState.level
                                                 ? <>
-                                                    <button onClick={() => damage(saveState.damage)} > TAKE DAMAGE</button></>
-                                                //Choice Gate
-                                                : <>
-                                                    {saveState.choice
-                                                        ? <> {saveState.choice.map(choice => {
-                                                            return (<button onClick={() => button(choice)}   >{choice}</button>)
-                                                        })}</>
-                                                        //Movement Gate
-                                                        : <> {saveState.movement
+                                                    {saveState.level.map(trait => {
+                                                        return (<button onClick={() => TraitUp(trait)}>{trait}</button>)
+                                                    })}
+                                                </>
+                                                : <> {saveState.enemy ? rooms.enemies[saveState.enemy].health > 0 ? <><button onClick={AttackEnemy}> Attack with {player.weapon}</button> <button onClick={RunFromEnemy}>Run from {saveState.enemy}</button> </>
+                                                    : <><button onClick={GainXP}>GainXP</button> </>
+
+                                                    //Item Gate
+                                                    : <>   {saveState.item ? <button onClick={pickup} >Pick up {saveState.item}</button>
+                                                        : <>  {rooms.checkPoint[saveState.checkpoint] === true
                                                             ? <>
-                                                                {/* if all tou can do is move the state will only have the values of movement */}
-                                                                {saveState.movement.map(button => {
-                                                                    return (<button onClick={() => movement(button)}> {button}</button>)
-                                                                })}</>
-                                                            //LAST GATE
-                                                            : <><button onClick={next}>Next</button> </>}
-                                                        </>}</>}</>}</>}</>}</>}
-                            </>}
+                                                                <button onClick={() => movement(saveState.enter)}  > {saveState.enter} </button>
+                                                            </>
+                                                            //Checkpoint Reached Gate
+                                                            : <> {saveState.checkpointReached
+                                                                ?
+                                                                <button onClick={() => checkpoint()} > Checkpoint</button>
+                                                                //Damage Gate
+                                                                : <> {saveState.damage
+                                                                    ? <>
+                                                                        <button onClick={() => damage(saveState.damage)} > TAKE DAMAGE</button></>
+                                                                    //Choice Gate
+                                                                    : <>
+                                                                        {saveState.choice
+                                                                            ? <> {saveState.choice.map(choice => {
+                                                                                return (<button onClick={() => button(choice)}   >{choice}</button>)
+                                                                            })}</>
+                                                                            //Movement Gate
+                                                                            : <> {saveState.movement
+                                                                                ? <>
+                                                                                    {/* if all tou can do is move the state will only have the values of movement */}
+                                                                                    {saveState.movement.map(button => {
+                                                                                        return (<button onClick={() => movement(button)}> {button}</button>)
+                                                                                    })}</>
+                                                                                //LAST GATE
+                                                                                : <><button onClick={next}>Next</button> </>}
+                                                                            </>}</>}</>}</>}</>}</>}  </>}
+
+
+                                        </>}</>}</>}
+
+
+
+
 
 
 

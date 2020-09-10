@@ -170,7 +170,7 @@ export default {
   },
   RunThroughTheRocks(attackRoll){
     if(attackRoll>7){
-      return('RunRuckSucc')
+      return('RunRockSucc')
     }
     else{
       return('RunRockFail')

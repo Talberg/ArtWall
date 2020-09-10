@@ -58,8 +58,8 @@ class Signup extends Component {
 
     render() {
         return (
-            <div>
-                <h2 className="loginTitle title-font">Signup</h2>
+            <div className='loginBox col-md-8 offset-2' ><div>
+                <h2 className="loginTitle title-font">Sign up so that your game can be saved!</h2>
                 <hr />
                 {this.props.message?(
                     <Alert className="animated fadeIn" color="danger">{this.props.message}</Alert>
@@ -92,6 +92,7 @@ class Signup extends Component {
                         <Link to="/login">already have an account?  Sign in here</Link>
                     </p>
                 </Form>
+                </div>
             </div>
         );
     }

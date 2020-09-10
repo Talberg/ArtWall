@@ -94,7 +94,7 @@ return(<div  >
    
       <div className='home'> {console.log(game)}
     <div className='row bigRow' > 
-    <div className='col-2 '> <GameCard player={rooms.player}></GameCard> </div>
+    <div className='col-2 '> <GameCard setRooms={setRooms} rooms={rooms} player={rooms.player}></GameCard> </div>
     {console.log(rooms)}
     {console.log('game')}
     

@@ -7,20 +7,21 @@ import StartGame from '../StartGame/StartGame'
 import GameDisplay from '../GameDisplay/GameDisplay'
 import GameCard from '../GameCard/GameCard'
 import TextArea from '../TextArea/TextArea'
+import Auth from '../../pages/Auth/index'
 
 function Home(props){
     console.log(props)
 return(<>{props.user.loggedIn ? <div className='home'>
-<p>HEllO : {props.user.user.username}</p>
+
 
 <GameDisplay user={props.user}></GameDisplay>
 
-<RequestBox user={props.user.user}></RequestBox>
+
 
 
 
 </div> :
     
-    <></> }</>)
+    <><Auth {...props} action="login" /></> }</>)
 }
 export default Home

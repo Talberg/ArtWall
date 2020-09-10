@@ -56,7 +56,7 @@ export default class Navigation extends Component {
         return (
             <div>
                 <Navbar className="navbar" light expand="md">
-                    <NavbarBrand href="/" className="titleFont"><i className="fas fa-key"></i> Betrayal at the House on the Hill</NavbarBrand>
+                    <NavbarBrand href="/" className="titleFont"> ART WALL</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -65,13 +65,16 @@ export default class Navigation extends Component {
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
-                                    <i className="fas fa-user light-text"></i>
+                                    <i className="fas fa-paint-brush light-text"></i>
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     {this.state.loggedIn ? (
                                         <>
                                             <DropdownItem>
-                                                <NavLink href="/profile">Profile</NavLink>
+                                                <NavLink href="/profile">Games</NavLink>
+                                            </DropdownItem>
+                                            <DropdownItem>
+                                                <NavLink href="/info">About</NavLink>
                                             </DropdownItem>
                                             <DropdownItem>
                                                 <NavLink onClick={this.logout}>Logout</NavLink>

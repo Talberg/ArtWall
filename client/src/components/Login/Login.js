@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function Login(props) {
     return (
-        <div className="loginBox">
-            <h2 className="loginTitle title-font">Login</h2>
+        <div className="loginBox col-md-8 offset-2">
+            <h2 className="loginTitle title-font">Welcome to <br/> ART WALL<br/> a Game in the world of my art. Please login to enjoy the game.</h2>
             <hr/>
             {props.message ? (
                 <Alert className="animated fadeIn" color="danger">{props.message}</Alert>

@@ -1,9 +1,10 @@
 @import "../../sass/variable.scss";
 
 .authBox {
+    background-color: black;
     padding-top: 75px;
     margin: 0 auto;
-    width: 300px;
+    width: auto;
     font-family: $text-font;
 
     .loginTitle {

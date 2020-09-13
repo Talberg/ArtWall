@@ -19,11 +19,10 @@ function Login(props) {
                     <Label for="password">Password</Label>
                     <Input type="password" name="password" id="password" placeholder="password" value={props.password} onChange={props.handleInputChange} />
                 </FormGroup>
-                <Button id="loginBtn" onClick={props.handleLogin} block>Login</Button>
-                <p className="signupLink">
-                    <Link to="/signup">dont have an account?  Sign up here</Link>
-                </p>
-            </Form>
+               
+               
+            </Form> 
+                 <button onClick={props.handleLogin}   className='btn btn-secondary btn-block col-md-8 offset-2 '  > Login</button><a href='/signup'><br/> <button    className='btn btn-secondary btn-block col-md-8 offset-2 '  > SignUp</button></a>
         </div>
     );
 }

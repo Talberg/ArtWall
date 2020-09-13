@@ -1,11 +1,21 @@
 @import '../../sass/variable.scss';
 
 .gameCard{
-  padding-top: 0rem;
+  padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 0rem;
-  background-color: black;
- 
+  margin-top:2rem;
+  background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3fy9anXXMArdMvVXEXAjGX6n8apAzXjY-5vE0z-r_LrRuhu8NpJ5v8o0G9UvuOKCeAYfGlqXtEcC1IEDsvmbYaV7UGoPyR_3tYFFKoWPTVrQbykvqcZkPGwLfJG6zunN4cdKhPplKXP3NDk9m7nfNTa7Q=w502-h843-no?authuser=0');
+ color: black;
+ font-family: 'Permanent Marker', cursive;
+ button{
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3dWVJzaoPchQqkVWt0wiBbI9cPqDXkVzdIKdxJkHhH_74Uc5UCNcImLOpaCB86JPMn20wGibYXHtC2V2t4CrtXOMl251AepOYqhddf8iPJqc5t_SeBd99KsEYcPsGz1JB27T2wl8SctFvYbx4sbrBzSBg=w1273-h843-no?authuser=0');
+    color:white;
+//         font-family: 'Gloria Hallelujah', cursive;
+// font-family: 'Long Cang', cursive;
+font-family: 'Permanent Marker', cursive;
+    font-size: larger;
+}
   
 
 }
@@ -31,7 +41,7 @@
 .statz{
     p{
         font-size: 13px;
-        color:white;
+        color:black;
       
         
     }
@@ -51,6 +61,6 @@
 .Title{
     p{
         font-size: 20px;
-        color: white;
+        color: black;
     }
 }

@@ -80,18 +80,18 @@ class Signup extends Component {
                     <FormGroup>
                         <Label for="confirmPassword">Confirm Password</Label>
                         <Input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirm password" value={this.props.confirmPassword} onChange={this.props.handleInputChange} valid={this.state.confirmPassword} />
-                        <FormText>at least 8 characters, 1 capital & 1 number</FormText>
+                        <FormText color='dark'>at least 8 characters, 1 capital & 1 number</FormText>
                     </FormGroup>
                     {/* if all fields are valid, allow the user to submit the form */}
-                    {(this.state.validUsername && this.state.validPassword && this.state.confirmPassword) ? (
-                        <Button onClick={this.props.handleSignup} color="success" block>Signup</Button>
+                   
+                    
+                </Form> {(this.state.validUsername && this.state.validPassword && this.state.confirmPassword) ? (
+                        <button className='btn btn-secondary btn-block success' onClick={this.props.handleSignup} color="success" block>Signup</button>
                     ) : (
-                        <Button onClick={this.props.handleSignup} color="danger" block disabled>Signup</Button>
-                    )}
-                    <p className="signupLink">
-                        <Link to="/login">already have an account?  Sign in here</Link>
-                    </p>
-                </Form>
+                        <button className='btn btn-secondary btn-block danger'  onClick={this.props.handleSignup} color="danger" block disabled>Signup</button>
+                    )} 
+                    <br></br>
+                    <a href='/login'> <button  className='btn btn-secondary btn-block' > Log In</button></a>
                 </div>
             </div>
         );

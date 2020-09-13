@@ -4,6 +4,8 @@ import StartGame from '../StartGame/StartGame'
 import Popup from 'reactjs-popup'
 
 
+
+
 function GameDisplay(props) {
     //props.user.user
     //{user: {…}}
@@ -46,32 +48,29 @@ function GameDisplay(props) {
     function gameLink(game_id) {
         document.location = `${game_id}`
     }
-    return (<div className='gameDisplay col-md-4 offset-4' >
-        <h4>Games</h4>
+    return (
+    
+    <div className='boarder'>
+    <div className='gameDisplay col-md-4 offset-4' >
+        
 
         <hr></hr>
 
 
 
         <StartGame user={user}></StartGame>
+        <h4>This will replace your save with a new game! After making a game then hit Continue</h4>
         <br />
-        <h5  >  Current Game </h5>
+     
         <hr />
-        <ul>
-            {/* make a .Map function that will map through and return a <li> that has the buttons and name of the game */}
-            {/* need to make the Start button Link to the correct page using :id route*/}
-            {/* need to make the Players Button Show a list of Players in that game */}
-            {/* make GameName show the name of the game that is looked up with the _id */}
-
-            <li>Current Game
-                    <hr /> <button onClick={() => { gameLink(game) }} >Start</button>
-            </li>
-            </ul>
+        <button className='btn-block btn' onClick={() => { gameLink(game) }} >Continue</button>
+        <h4>Continue your adventure here! Press F11 to go into fullscreen mode</h4>
+     
 
           
             
           
-    </div>)
+    </div></div>)
 }
 
 export default GameDisplay

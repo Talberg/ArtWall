@@ -10,8 +10,21 @@ function GameCard(props) {
     let saveState = props.rooms.game[props.rooms.save]
     let save = saveState.next
     let InBackpack= rooms.save === "Backpack"
+    let allThree = rooms.checkPoint.lizard&&rooms.checkPoint.sandWorm&&rooms.checkPoint.hole
+
     console.log(InBackpack)
     function showBackpack(){
+        if(allThree){
+            setRooms({
+                ...rooms,
+                checkPoint:{
+                    ...rooms.checkPoint,
+                    allThree:true
+                }
+                ,
+                
+            })
+        }
         setRooms({
             ...rooms,
             game:{
@@ -54,7 +67,7 @@ function GameCard(props) {
                 <div className='col-4 equipment1'> <p alt={player.weapon}>{player.weapon}</p>  </div>
                 <div className='col-4 equipment1'> <p>{player.body}</p>  </div>
                 <div className='col-4 equipment1'> <p>{player.head}</p>  </div>
-                <div className='col-12 Title'> <button disabled={InBackpack} onClick={showBackpack}> Backpack:</button></div>
+                <div className='col-12 Title'> <button disabled={InBackpack} onClick={showBackpack}> Open Backpack</button></div>
                 <div className='col-12 Title '> <p> <ul>
                         {player.bag.map(item=>{
                             return(<li>{item}</li>)

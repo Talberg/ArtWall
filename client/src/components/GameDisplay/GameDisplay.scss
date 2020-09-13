@@ -1,23 +1,33 @@
 .gameDisplay{
     position: relative;
-    background-color: purple ;
+    background-image:url('https://lh3.googleusercontent.com/pw/ACtC-3cqMmb8n2m7aTppmT_IMKqypd-BdyNSz1s2bvGrKhuUK1IZ3hl9vje8v0dDwx_pgUyXjT69BT0tfJHV5yHw0gpEC3g7t8UK0yblm4M9Aap2vYZlm8SJzZZ9hipWJYiDnaE0TnZOxEw6Anlz2ZEeats2Tg=w1262-h843-no?authuser=0') ;
     width: auto;
     height: auto;
     top:1rem;
     padding: 1rem;
     color: white;
     left: 1rem;
+    border: 25px solid black;
+    border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23B88846' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
+    
     li{
     background-color: green;
     padding: .4rem;
     border-radius: 1rem ;
     margin: .5rem 0;
+    border-radius: 2%;
     
 }
 button{
-    border-radius: 0%;
-    
-    margin: 0 .3rem .3rem .3rem;
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3dWVJzaoPchQqkVWt0wiBbI9cPqDXkVzdIKdxJkHhH_74Uc5UCNcImLOpaCB86JPMn20wGibYXHtC2V2t4CrtXOMl251AepOYqhddf8iPJqc5t_SeBd99KsEYcPsGz1JB27T2wl8SctFvYbx4sbrBzSBg=w1273-h843-no?authuser=0');
+    color:white;
+//         font-family: 'Gloria Hallelujah', cursive;
+// font-family: 'Long Cang', cursive;
+font-family: 'Permanent Marker', cursive;
+    font-size: larger;
+}
+h4{
+    font-family: 'Gloria Hallelujah', cursive;
 }
 }
 

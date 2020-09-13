@@ -55,8 +55,8 @@ export default class Navigation extends Component {
     render() {
         return (
             <div>
-                <Navbar className="navbar" light expand="md">
-                    <NavbarBrand href="/" className="titleFont"> ART WALL</NavbarBrand>
+                <Navbar className="navbar center-text" light expand="md">
+                    <NavbarBrand href="/" className="titleFont col-4 offset-4"> ART WALL</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>

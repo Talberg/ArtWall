@@ -5,6 +5,11 @@ import API from '../../utils/API'
 
 
 function StartGame(props){
+    function NewGame(){
+        API.newGame({email:props.user.email}).then(
+            window.location.replace('/profile')
+        )
+    }
 
 
 
@@ -17,7 +22,7 @@ function StartGame(props){
   
 
     return(<div className='startGame'>
-       <button onClick={()=>API.newGame({email:props.user.email})} className=''> Start New Game </button>
+       <button className='btn-block btn' onClick={NewGame} > Start New Game </button>
        
     </div>)
 }

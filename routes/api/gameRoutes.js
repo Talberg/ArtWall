@@ -174,7 +174,8 @@ const Game = {
             // here is where the quest area should propogate with the current quests. Should be a "hub area that you can go to each place and put in a save state here also"
             movement:['Cave','Rocks','Jungle'],
             dialog:'Where are you going?',
-            next:'Obelisk',
+            dialog2:'"Put the sword in the hole in the Obelisk if you want to leave the island." Like you have nothing to lose you thrust the sword into the obolisk! As soon as the steel vanishes into the stone a bolt of lightning strikes the Obolisk, everything goes black',
+            enter:'Obelisk',
             checkpoint:"allThree",
             src:'https://lh3.googleusercontent.com/pw/ACtC-3e3u5jsSWNdJStvJF5lllH7fMfA0xsTbZE_GJIx7t24jMCy4RmPlviJ8jofiU8hUM8Z4mdzus8tMCbEA4wiKRlHe2nfU06BjnD3FlwdCCYDfKyjkTloNvhGKOwuTnWR3M_c902GMm_UivbdmXUq8Q2esw=w1180-h843-no?authuser=0'
         
@@ -415,7 +416,7 @@ const Game = {
         },
         Sword:{
             dialog:'This old sword has seen better days but is still sharp. You nik your finger with the blade. A small drop of blood lands on the sand',
-            weapon:'Sword', 
+            item:'Sword', 
             next:'SandWorm'
         },
         ShrineCheckpoint:{
@@ -453,11 +454,12 @@ const Game = {
     save:'intro',
     checkPoint:{
         log:false,
-        lizard:false,
+        lizard:true,
         spider:false,
         rock:false,
         shrine:false,
-        sandWorm:false, 
+        sandWorm:true,
+        hole:true
     }
   
 

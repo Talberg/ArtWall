@@ -20,6 +20,22 @@ function TextArea(props) {
     let nextLevelNew = rooms.levels[nextLevel].new
     let InBackpack = rooms.save === "Backpack"
     let items = rooms.items
+    let allThree = rooms.checkPoint.lizard&&rooms.checkPoint.sandWorm&&rooms.checkPoint.hole
+    function Check3 (){
+        if(allThree){
+        setRooms({
+            ...rooms,
+            checkPoint:{
+                ...rooms.checkPoint,
+                allThree:true
+            }
+            ,
+            
+        })
+    }
+    }
+    
+    
     
 
 
@@ -37,12 +53,24 @@ function TextArea(props) {
         let type= itemObj.type
         let stat= itemObj.stat
         let mod = itemObj.mod
-        let newBag = player.bag.filter(item=> item !== item)
+        let newBag =  [...player.bag]
+        let NewBag = newBag.filter(items=>items !== item)
         console.log(newBag)
        
         
         if(type === 'weapon'){
-            weapon(item,player.weapon)
+            // weapon(item,player.weapon)
+            console.log(NewBag)
+            setRooms({
+                ...rooms,
+                player: {
+                    ...player,
+                    weapon: item,
+                    bag:[...NewBag,player.weapon]
+             
+                },
+                save: save
+            })
         }
         if(type === 'potion'){
             // new gate that needs to ask 'stat' and 'mod',
@@ -56,7 +84,7 @@ function TextArea(props) {
                         player:{
                             ...player,
                             health:newHealth,
-                            bag:newBag
+                            bag:NewBag
                         },
                         save:save
 
@@ -68,7 +96,7 @@ function TextArea(props) {
                         player:{
                             ...player,
                             health:newHealth,
-                            bag:newBag
+                            bag:NewBag
                         },
                         save:save
 
@@ -257,6 +285,7 @@ function TextArea(props) {
        
         
         let newBag = player.bag.filter(choice=> choice !== choice)
+
         console.log(newBag)
          let NewBag = [...newBag,toBag]
          console.log(NewBag)
@@ -315,7 +344,7 @@ function TextArea(props) {
         let split = place.split(' ')
         let join = split.join('')
 
-
+        
         setRooms(
             {
                 ...rooms, save: join

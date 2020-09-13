@@ -1,14 +1,34 @@
 @import "../../sass/variable.scss";
 
 .authBox {
-    background-color: black;
+    background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3ddb_FF3XRAJksGKBGreG1O5LbSJAAE5YzlXlirH6t9LvHLD6Rtcfze7JxtxEJrR9NhP-8BbKG2CAf9jBXf05JSDNDpzOmmPH18ODO_Le1VAvqVwhXKSvjJ7mzfvxdzqt4yE0qlxcTvMyQ3PknCfcYkPw=w1265-h843-no?authuser=0');
     padding-top: 75px;
+    padding-bottom: 75px;
     margin: 0 auto;
     width: auto;
+    height: 1000px;
     font-family: $text-font;
+
+    button{
+        background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3dWVJzaoPchQqkVWt0wiBbI9cPqDXkVzdIKdxJkHhH_74Uc5UCNcImLOpaCB86JPMn20wGibYXHtC2V2t4CrtXOMl251AepOYqhddf8iPJqc5t_SeBd99KsEYcPsGz1JB27T2wl8SctFvYbx4sbrBzSBg=w1273-h843-no?authuser=0');
+        color:white;
+//         font-family: 'Gloria Hallelujah', cursive;
+// font-family: 'Long Cang', cursive;
+font-family: 'Permanent Marker', cursive;
+        font-size: larger;
+    }
+
+    form{
+        color: blanchedalmond;
+    }
+    .form-text{
+        color: blanchedalmond;
+    }
 
     .loginTitle {
         text-align: center;
+        color: blanchedalmond;
+        font-family: 'Gloria Hallelujah', cursive;
     }
 
     .signupLink {
@@ -17,7 +37,8 @@
     }
 
     .title-font {
-        font-family: $title-font;
+        
+
     }
 
     #loginBtn {

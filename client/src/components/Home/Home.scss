@@ -47,7 +47,7 @@ padding-left: 1rem;;
     
     
 }
-.speech-bubble {
+.speech-bubbled {
 	position: relative;
 	background: #00aabb;
     border-radius: .4em;
@@ -55,20 +55,7 @@ padding-left: 1rem;;
     z-index: 1000000;
 }
 
-.speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-top-color: #00aabb;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -10px;
-	margin-bottom: -20px;
-}
+
 .loginBox{
     background-image: url('https://lh3.googleusercontent.com/pw/ACtC-3cqMmb8n2m7aTppmT_IMKqypd-BdyNSz1s2bvGrKhuUK1IZ3hl9vje8v0dDwx_pgUyXjT69BT0tfJHV5yHw0gpEC3g7t8UK0yblm4M9Aap2vYZlm8SJzZZ9hipWJYiDnaE0TnZOxEw6Anlz2ZEeats2Tg=w1262-h843-no?authuser=0');
   

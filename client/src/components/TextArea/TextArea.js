@@ -426,7 +426,7 @@ function TextArea(props) {
     return (
         <div className='col-8 display '>
             {/* this should be made into a componet and then fed in the values with props */}
-            <div className='holder col-12'> <div className='textHolder speech-bubbled '>
+            <div className='holder col-12'> <div className='textHolder  '>
                 {/* Checkpoint Gate A */}
                 <p>{rooms.checkPoint[saveState.checkpoint] ? <>{saveState.dialog2}</> : <>  {saveState.dialog}</>} </p><div className='col-4 ' >
 

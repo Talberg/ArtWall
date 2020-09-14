@@ -101,6 +101,9 @@ const Game = {
         },
         SpiderWeb:{
             type:'craft'
+        },
+        Vine:{
+            type:'craft'
         }
 
 
@@ -118,7 +121,7 @@ const Game = {
      
         intro:{
             where:'firstShore',
-            src:"https://lh3.googleusercontent.com/pw/ACtC-3euveF8n4fhhLPcfK_B9gzemc7Fi1dxdphTHD0XITkZdWgNNBUvLlsKVzcX3aL2jZnOKWAPvvROzQ9jD6WFeGRa9dHd4nDD9rauHpf8Af0-1frcSd_cNs5s8hZ5zGDwOlI_eRZ5Rn9Vfzs2OpLUa74n3Q=w1213-h903-no?authuser=0",
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3dfJZYZnz7XeVpPJwi1x9Mrfp6l7J_tFGZCSZ_IivSlcc4nND8tJQU8i1KKoin5dGJdazl95q-sinIcmV58_1plN0K39tLjc2NnpDPiMFE8iosLT8d6xnHz1cg5lVcN0PSPYyRedqRoD3408xNYRXyaVA=w959-h685-no?authuser=0",
             dialog:"You wake up to the waves crashing around you. Blue as far as the eye can see. You sit upon small rock formation that looks like it was built rather than sculpted by the ocean. You climb atop the rocks and can barley make out an island on the horizon. ",
             responses:['next'],
             next:'intro2'
@@ -126,47 +129,41 @@ const Game = {
         },
         intro2:{
             where:'firstShore',
-            src:"https://lh3.googleusercontent.com/pw/ACtC-3euveF8n4fhhLPcfK_B9gzemc7Fi1dxdphTHD0XITkZdWgNNBUvLlsKVzcX3aL2jZnOKWAPvvROzQ9jD6WFeGRa9dHd4nDD9rauHpf8Af0-1frcSd_cNs5s8hZ5zGDwOlI_eRZ5Rn9Vfzs2OpLUa74n3Q=w1213-h903-no?authuser=0",
-            dialog:"There is a rowboat tied up to a dock on the other side of the island. ",
-            responses:['next'],
-            next:'wall'
-
-        },
-        wall:{
-            where:'firstShore',
-            src:'https://lh3.googleusercontent.com/pw/ACtC-3eAIE28YY7WfPSyVH3g0CiaTt-U_huwXIroyxo3_HtrhbJf4q11ald29kAywfmwf7e1AFpT8G8yYpfklLTOd5Gzh7pqDgFsaR8LCD7tWR6fLCnxYqZOg7-69bpt9nGJIRUHPLfUWhxXJXoBj8h6ppOOMQ=w1031-h763-no?authuser=0',
-            dialog:'You climb on the boat, untie the rope and push off.',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3dfJZYZnz7XeVpPJwi1x9Mrfp6l7J_tFGZCSZ_IivSlcc4nND8tJQU8i1KKoin5dGJdazl95q-sinIcmV58_1plN0K39tLjc2NnpDPiMFE8iosLT8d6xnHz1cg5lVcN0PSPYyRedqRoD3408xNYRXyaVA=w959-h685-no?authuser=0",
+            dialog:"There is a rowboat tied up to a rock. With nothing to lose you climb in and start the rowing towards the island in the distance. ",
             responses:['next'],
             next:'island'
+
         },
+      
         island:{
-            src:'https://lh3.googleusercontent.com/pw/ACtC-3eAIE28YY7WfPSyVH3g0CiaTt-U_huwXIroyxo3_HtrhbJf4q11ald29kAywfmwf7e1AFpT8G8yYpfklLTOd5Gzh7pqDgFsaR8LCD7tWR6fLCnxYqZOg7-69bpt9nGJIRUHPLfUWhxXJXoBj8h6ppOOMQ=w1031-h763-no?authuser=0',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3e9KoBxiAyts-RdmZ_AWQ0VQDtKpIWdzi6wCpvwqTS2f3fSemYvcSHVUWuGQo4TWGb_qkfeReEzBVjehkc0UCO6A6BnDkiTjnTCLBFWV6yHU8SwRRg_nndKKu9CKgVFPJNvrHVH29Gri8SlUGAvMLgLxA=w959-h724-no?authuser=0',
             dialog:'After rowing for an hour or so you are about 100 yards from the island, you keep thinking you see a flash coming from the island out of the corner of your eye but every time you look nothing is there. The water has become to shallow for your boat so you will have to wade to the beach.',
             next:'owl'
         },
         owl:{
-            src:'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fQejAEsd-3jxGm5HwDi5mNJ5i51n6U1Vxk_e_aPhPWRuyB6b7nw92i7-8hpKqHqf5gHxluXopaGgHW5Amg8QGvtulln0HetapQReT_8-LmafRPtp5sTe7P9aeis3t7pA7OwFy5VVPMrkCTz1dgRcLQrw=w574-h744-no?authuser=0',
             dialog:'Soaking wet and exhausted you collapsed on the sand with releif. Just as you start to nod off the flash is there again!  Startled you sit up and finally see the source of the light. An Owl. ',
             next:'owlIntro'
 
         },
         owlIntro:{
-            src:'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fQejAEsd-3jxGm5HwDi5mNJ5i51n6U1Vxk_e_aPhPWRuyB6b7nw92i7-8hpKqHqf5gHxluXopaGgHW5Amg8QGvtulln0HetapQReT_8-LmafRPtp5sTe7P9aeis3t7pA7OwFy5VVPMrkCTz1dgRcLQrw=w574-h744-no?authuser=0',
             dialog: 'In your head you hear, "Welcome to the Distant Temple, please dont be alarmed,I am here to help you. You are going to have to help me in order to help yourself though."',
             next:'owlIntro2'
         },
         owlIntro2:{
-            src: 'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
-            dialog:'So I need 3 things from you. There is a cave to your left that was recently sealed off by a fallen tree, and in there is the ONLY place that my favorite berry grows. Forward there is a long path that will lead you to a friend of mine that is holding a ring for me, do be warned he does bite sometimes.',
+            src: 'https://lh3.googleusercontent.com/pw/ACtC-3fQejAEsd-3jxGm5HwDi5mNJ5i51n6U1Vxk_e_aPhPWRuyB6b7nw92i7-8hpKqHqf5gHxluXopaGgHW5Amg8QGvtulln0HetapQReT_8-LmafRPtp5sTe7P9aeis3t7pA7OwFy5VVPMrkCTz1dgRcLQrw=w574-h744-no?authuser=0',
+            dialog:'So I need 3 things from you. There is a cave to your left that was recently sealed off by a over grown vines, and in there is the ONLY place that my favorite berry grows. Forward there is a long path that will lead you to a friend of mine that is holding a ring for me, do be warned he does bite sometimes.',
             next:'owlIntro3'
         },
         owlIntro3:{
-            src:'https://lh3.googleusercontent.com/pw/ACtC-3dinxsD3g8x-t0xO7kp99DhiFx0vSqF4a8sTF_14gBEoGFmk8WUw8fTWG-fHWlIgeqmt6WxI-daJyGlFz2k0dqofSZzqUO2tLrbYqgZIwbK6BuSyi_979hg56_tWuZbwy0eaLe__Wis9ylBJ4IZxCHNfA=w574-h744-no?authuser=0',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fQejAEsd-3jxGm5HwDi5mNJ5i51n6U1Vxk_e_aPhPWRuyB6b7nw92i7-8hpKqHqf5gHxluXopaGgHW5Amg8QGvtulln0HetapQReT_8-LmafRPtp5sTe7P9aeis3t7pA7OwFy5VVPMrkCTz1dgRcLQrw=w574-h744-no?authuser=0',
             dialog:'To the right along the beach are sleeping rocks, if you wake them up it will not be pretty. But there is an old sword on a shrine that you will need before I can get you off this Island.',
             next:'boatGone'
         }, 
         boatGone:{
-            src:'boat bye bye pic',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3c7MTlETsNmplpYJbIwy-TE_iC5l5Pl3QqaTorvkIF2w0rBj8hCULMMd1qQgwLUj-l5dbu1rzsVXS0fIFq2ptZg6hUGmq-H74z-IorWkVgsHbQUT--7x_USgZHuN96cQJMS08aB37cxYbbFCq0kK9ZMvg=w893-h638-no?authuser=0',
             dialog:'Oh also your boat seems to have left you, and on its way back home. Such a good boat...',
             next:'BeachHub1'
         },
@@ -177,29 +174,30 @@ const Game = {
             dialog2:'"Put the sword in the hole in the Obelisk if you want to leave the island." Like you have nothing to lose you thrust the sword into the obolisk! As soon as the steel vanishes into the stone a bolt of lightning strikes the Obolisk, everything goes black',
             enter:'Obelisk',
             checkpoint:"allThree",
-            src:'https://lh3.googleusercontent.com/pw/ACtC-3e3u5jsSWNdJStvJF5lllH7fMfA0xsTbZE_GJIx7t24jMCy4RmPlviJ8jofiU8hUM8Z4mdzus8tMCbEA4wiKRlHe2nfU06BjnD3FlwdCCYDfKyjkTloNvhGKOwuTnWR3M_c902GMm_UivbdmXUq8Q2esw=w1180-h843-no?authuser=0'
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fCANhDUZm_2KT9Zt00xr4OmHLTGzh7cw3UpW3WpEOsuATROfTVQwe_pcx1Yn9BEns63oTs1mFdpYqHtLGi-FQwAcQQuWNfVAJ4O3_t6Owe351-7Wtj2NM4WMeycsTtcjZTMhqQuf4MxMEtXx8oLSsXEg=w1264-h903-no?authuser=0'
         
         },
         Cave:{
-            checkpoint:'log',
-            choice:['Attack Log','Move Log'],
+            checkpoint:'vines',
+            choice:['Attack Vines','Move Vines'],
             dialog:'A large log blocks the entrance to the cave, what would you like to do?',
             enter:'InsideCave',
             back:'BeachHub1',
-            dialog2:'The log is now out of the way, cool air rushes past you from the mouth of the cave. Go in or back? '
+            dialog2:'The log is now out of the way, cool air rushes past you from the mouth of the cave. Go in or back? ',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3cb2Xk1xgqhnVeJlcyM1wW13AbL8FV0I-wmvhfSqJqUPWb9ng7JF5OtFPmDAsH15S4Ux0nngsVaZjPCDmtmGFnXfnCpAZA3z8r5ZoixTu4AZJHJi-ftKkgnEy9YrM78oDQOYXlpAwgq0EKVuRYeTmH-og=w603-h903-no?authuser=0"
             
 
             
         },
-        LogBreaks:{
-            item:'Bark',
+        VinesBreak:{
+            item:'Vine',
             src:'cave bark',
-            dialog:'You break the log in half with your strength. A piece of the log splinters off, you pick it up and put it in your pocket.',
-            next:'LogCheckpoint',
+            dialog:'You break the vines down and pick up a vine.',
+            next:'Checkpoint',
             
 
         }, 
-        LogAttackFail:{
+        VineAttackFail:{
             damage:2,
             dialog:'You lose health, be carful!',
             next:'Cave',
@@ -207,9 +205,9 @@ const Game = {
             
 
         },
-        LogCheckpoint:{
-            checkpointReached:'log',
-            dialog:"You have Cleared the log CHECKPOINT",
+        Checkpoint:{
+            checkpointReached:'vines',
+            dialog:"You have Cleared the Vines!",
             next:'Cave'
 
 
@@ -220,26 +218,36 @@ const Game = {
             back:'Cave',
             checkpoint:'lizard',
             dialog2:'The lizards and the bushes seem to have turned into stalagmite versions of themselves...  ',
-            enter:'BeachHub1'
+            enter:'BeachHub1',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
         },
         SmallLizard:{
             choice:['Sneak Past Lizard', 'Attack on the lizard'],
-            dialog:'There is a small lizard curled up, Would you rather step on the lizard or sneak past?'
+            dialog:'There is a small lizard curled up, Would you rather step on the lizard or sneak past?',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
 
         },
         MediumWith2Tails:{
             choice:['Sneak Past Lizard','Attack on the lizard'],
-            dialog:'There is a medium sized lizard with 2 tails. What do you do?'
+            dialog:'There is a medium sized lizard with 2 tails. What do you do?',         
+               src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
         },
         Largenotail:{
             choice:['Sneak Past Lizard','Attack on the lizard'],
-            dialog:'The largest lizard has no tail and is snoring load. What do you do?'
+            dialog:'The largest lizard has no tail and is snoring load. What do you do?',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
 
         },
         LizardSneakSucc:{
             dialog:'You sneak past the sleeping lizard and pick one berry of each color. Without making a sound you sneak back out side the cave',
             next:'LizardCheckpoint',
-            item:'RainbowBerries'
+            item:'RainbowBerries',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
+
             
 
 
@@ -247,7 +255,9 @@ const Game = {
         LizardAttackSucc:{
             dialog:'You crush the lizard Under your boot',
             next:'LizardCheckpoint',
-            item:'RainbowBerries'
+            item:'RainbowBerries',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
             
 
 
@@ -256,17 +266,22 @@ const Game = {
             dialog:'The lizard bites you but not before you grab the berries',
             next:'LizardCheckpoint',
             item:'RainbowBerries',
-            damage:'2'
+            damage:'2',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
         },
         LizardCheckpoint:{
             dialog:'Checkpoint Reached!',
             next:'InsideCave',
             checkpointReached:'lizard',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3df4kK_gvhlXUc7pNk8IJCyv2agIBO2MIx8_ewZjcZj7fLFjKkcmMSkus6N72Hs7-eUwtjpqDsGWOLB4yCwSl_Ugmln0ATlSjhxoJGfn_P0S7qexL-jmpK-FZK_9QVYFMdWHr_60CWOmR7ozU3FaGz5UQ=w1180-h843-no?authuser=0"
+
         },
         Jungle:{
              dialog:'The path through the jungle is thick with vegitation. Deeper and Deeper into the jungle you go hoping that the Owl"s friend is easy to spot...',
              next:'DeepJungle',
-             back:'BeachHub1'
+             back:'BeachHub1',
+             src:'https://lh3.googleusercontent.com/pw/ACtC-3cwkswXWRiFaaAWScbcN-yiFKm2gCFNhYon5ER3WJFvS7FmTZgyAD6mDvefkVCIjH-aNO_mfQ9bVL5TkwHE_S2ArA8o2q0i_E5kbOYCoZZcMt7dowFVLdeg5LeP06XXOZhKHXpy5LFVYGxAkR22wfsFnA=w959-h640-no?authuser=0'
              
         },
         DeepJungle:{
@@ -275,12 +290,14 @@ const Game = {
             back:'Jungle',
             checkpoint:'spider',
             dialog2:'The webs seem to have just disintegrated, your path is clear.',
-            enter:"Sign"
+            enter:"Sign",
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3cwkswXWRiFaaAWScbcN-yiFKm2gCFNhYon5ER3WJFvS7FmTZgyAD6mDvefkVCIjH-aNO_mfQ9bVL5TkwHE_S2ArA8o2q0i_E5kbOYCoZZcMt7dowFVLdeg5LeP06XXOZhKHXpy5LFVYGxAkR22wfsFnA=w959-h640-no?authuser=0'
 
         },
         SpiderSneakSucc:{
             dialog:'You carefully  sneak past the webs',
             next:'SpiderWeb',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3ebcRzcrCM1f7bKf-rz4m-YzINd-WVZ6ejGed-42GYJZ7uteK3O3o5kO7IxvTfJ-WDdYeb1EyguuAW55un_itQSg201gcxKYg2v-IGBZq2N9WTYxZRyFhnYJXCKogW7N5nbw2XWCy-BDclV88jFo1jSWg=w959-h640-no?authuser=0'
             
 
             
@@ -288,33 +305,37 @@ const Game = {
         SpiderSneakFail:{
             dialog:'You brush the webs with your shoulder, thousands of spiders stream down the web! You run but not fast enough! You are bitten!',
             damage:4,
-            next:"SpiderWeb"
+            next:"SpiderWeb",
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3cwkswXWRiFaaAWScbcN-yiFKm2gCFNhYon5ER3WJFvS7FmTZgyAD6mDvefkVCIjH-aNO_mfQ9bVL5TkwHE_S2ArA8o2q0i_E5kbOYCoZZcMt7dowFVLdeg5LeP06XXOZhKHXpy5LFVYGxAkR22wfsFnA=w959-h640-no?authuser=0'
         },
         SpiderWeb:{
             dialog:'You pocket some of the rope like webs',
             item:'Spiderweb',
             next:'SpiderCheckpoint',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3ebcRzcrCM1f7bKf-rz4m-YzINd-WVZ6ejGed-42GYJZ7uteK3O3o5kO7IxvTfJ-WDdYeb1EyguuAW55un_itQSg201gcxKYg2v-IGBZq2N9WTYxZRyFhnYJXCKogW7N5nbw2XWCy-BDclV88jFo1jSWg=w959-h640-no?authuser=0'
 
         },
         SpiderCheckpoint:{
             dialog:'Spider Checkpoint reached',
             checkpointReached:'spider',
-            next:'Sign'
+            next:'Sign',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3ebcRzcrCM1f7bKf-rz4m-YzINd-WVZ6ejGed-42GYJZ7uteK3O3o5kO7IxvTfJ-WDdYeb1EyguuAW55un_itQSg201gcxKYg2v-IGBZq2N9WTYxZRyFhnYJXCKogW7N5nbw2XWCy-BDclV88jFo1jSWg=w959-h640-no?authuser=0'
         },
-        MoveLogSucc:{
+        MoveVinesSucc:{
             dialog:'You move the log out of your path.',
             next:'LogCheckpoint',
-            item:"Grub"
+            item:"Grub",
 
         },
-        MoveLogFail:{
+        MoveVinesFail:{
             dialog:'You try hard to move the log but you only pick up a few inches then drop it on your toe! Take 2 Damage',
             damage:2,
             next:'Cave'
         },
         Sign:{
             dialog:'Sign Reads: "Welcome, I am Home". It is places next to a shallow hole. ',
-            next:'Hole'
+            next:'Hole',
+            src:"https://lh3.googleusercontent.com/pw/ACtC-3eyn2CZ7YgMeGi7H4FgIqyEKXBwWYGRMcaU0PUQQLfJPj6O_iJf4jymxIpV8K6MW-dEvxTeSQ5sUux_lJoWF1NdAqbtRVQlHTGKlsMlf8MTg0JzI2yfQBuylmSDv29dWAxFoQvjs-SM5QIxASRIrY_yaQ=w633-h843-no?authuser=0"
         },
         Hole:{
             dialog:'At the bottom of the hole, a snake is curled and ready to strike. "Welcome to my home! I bet that Owl sent you to take my ring." as the snake uncoils you catch a the shine of gold at the tip of its tail. What will you do?  "',
@@ -323,51 +344,67 @@ const Game = {
             checkpoint:'hole',
             dialog2:'Would you like to Help the poor guy?',
             enter:'Help The Snake',
-            back:'BeachHub1'
+            back:'BeachHub1',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
 
         },
         AttackSnakeSucc:{
             dialog:'You jump down on to the snake and grab the ring before the snake can react you are out of the hole, ring in hand!',
 
-            next:'Ring'
+            next:'Ring',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
         },
         AttackSnakeFail:{
             dialog:'You jump in the hole but the snake moves, you grab the ring, but before you leave the hole the snake bites you! Take 4 Damage! ',
             damage:4,
-            next:"Ring"
+            next:"Ring",           
+             src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
+
         },
         AskSnakeSucc:{
             dialog:'You ask the snake nicely for the Owl ring. After a second the answer is clear as the snake moves off of the ring. "Okay, take it, no use to me anyways!" You pick up the Ring',
-            next:'Ring'
+            next:'Ring',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
+
         },
         AskSnakeFail:{  
             dialog:'"FIGHT ME FOR IT!',
             choice:['Attack the Snake'],
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
+
             
 
         },
         Ring:{
             dialog:'You pocket the Gold ring with a blue stone',
             item:'Ring',
-            next:'HoleCheckpoint'
+            next:'HoleCheckpoint',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
+
         },
         HoleCheckpoint:{
             dialog:'As you leave the hole it collapses around the snake, you can hear muffled screams coming from the ruble',
             checkpointReached:'hole',
-            next:'Hole'
+            next:'Hole',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
+
         },
         HelpTheSnake:{
             dialog:'You cant help....',
             back:'Hole',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3fJrbhTlFohyPqs0DLlxGSbiedIP81jqHkXXYD8eJAjBk2gn5G4-4WvNzSHz0i3l8yydar4ZbnA0iUR-7_e_VA2tWXP38cqZORsOrhjh8BWTDpkbNoBs_Au6ZdfQnzy9eLW6swv67VqCjHuDsTP7UcpWw=w563-h843-no?authuser=0'
+
         },
         AttackWebSucc:{
             dialog:'You run so fast through the webs that the spiders dont have time to bite you.',
-            next:'SpiderWeb'
+            next:'SpiderWeb',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3ebcRzcrCM1f7bKf-rz4m-YzINd-WVZ6ejGed-42GYJZ7uteK3O3o5kO7IxvTfJ-WDdYeb1EyguuAW55un_itQSg201gcxKYg2v-IGBZq2N9WTYxZRyFhnYJXCKogW7N5nbw2XWCy-BDclV88jFo1jSWg=w959-h640-no?authuser=0'
         },
         AttackWebFail:{
             dialog:'You are to slow, the spiders rush you, biting your exposed skin! Take 4 damage',
             damage:4,
-            next:'SpiderWeb'
+            next:'SpiderWeb',
+            src:'https://lh3.googleusercontent.com/pw/ACtC-3ebcRzcrCM1f7bKf-rz4m-YzINd-WVZ6ejGed-42GYJZ7uteK3O3o5kO7IxvTfJ-WDdYeb1EyguuAW55un_itQSg201gcxKYg2v-IGBZq2N9WTYxZRyFhnYJXCKogW7N5nbw2XWCy-BDclV88jFo1jSWg=w959-h640-no?authuser=0'
         },
         Rocks:{
             dialog:"The boulders move up and down. You can feel warm air coming from under them. The only passage is through 2 of them. What would you like to do?",
@@ -454,12 +491,12 @@ const Game = {
     save:'intro',
     checkPoint:{
         log:false,
-        lizard:true,
+        lizard:false,
         spider:false,
         rock:false,
         shrine:false,
         sandWorm:true,
-        hole:true
+        hole:false
     }
   
 

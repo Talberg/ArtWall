@@ -101,14 +101,14 @@ export default {
     
 
   },
-  AttackLog(attackRoll){
+  AttackVines(attackRoll){
     
       // attack roll here 
       if(attackRoll>15){
-          return('LogBreaks')
+          return('VinesBreak')
       }
       if(attackRoll<15){
-          return('LogAttackFail')
+          return('VineAttackFail')
       
   }
   },
@@ -135,12 +135,12 @@ export default {
       return("SpiderSneakFail")
     }
   },
-  MoveLog(attackRoll){
+  MoveVines(attackRoll){
     if(attackRoll>5){
-      return('MoveLogSucc')
+      return('MoveVinesSucc')
     }
     else{
-      return('MoveLogFail')
+      return('MoveVinesFail')
     }
   },
   AttacktheSnake(attackRoll){
